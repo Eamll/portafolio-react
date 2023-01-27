@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, BrowserRouter, NavLink, Navigate } from 'react-router-dom'
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
 import { Contacto } from '../components/Contacto'
 import { Curriculum } from '../components/Curriculum'
 import { Inicio } from '../components/Inicio'
