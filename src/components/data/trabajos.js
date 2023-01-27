@@ -1,17 +1,17 @@
 export const trabajos = [
     {
-        'id': 'facebook',
-        'nombre': 'Facebook',
-        'url': 'facebook.com',
-        'tecnologias': 'HTML,CSS,JS',
-        'categorias': 'Pagina social',
-        'descripcion': 'Ipsum minim deserunt aute duis sunt. Excepteur dolore culpa ex cupidatat. Irure pariatur minim consectetur velit duis elit enim id incididunt incididunt occaecat sint laborum ex.'
+        'id': 'portafolio',
+        'nombre': 'Portafolio',
+        'url': 'eamllportfolio.netlify.app',
+        'tecnologias': 'HTML, CSS, JS, JQuery, Bootstrap',
+        'categorias': 'Pagina para mostrar proyectos realizados',
+        'descripcion': 'Esta es la primera version de portafolio que cree sin ningun framework, es una SPA, una especie de practica para probar mis habilidades en el momento. Aplique bootstrap para los estilos que me facilitaron mucho la parte de diseño y JQuery para facilitarme el trabajo en cuanto a funcionalidades.'
     },
     {
-        'id': 'twitter',
-        'nombre': 'Twitter',
-        'url': 'twitter.com',
-        'tecnologias': 'HTML,CSS, PHP, MYSQL',
+        'id': 'blog_mern',
+        'nombre': 'Blog MERN',
+        'url': 'google.com',
+        'tecnologias': 'MongoDB, Express, React, Node.js',
         'categorias': 'Pagina social',
         'descripcion': 'Ipsum minim deserunt aute duis sunt. Excepteur dolore culpa ex cupidatat. Irure pariatur minim consectetur velit duis elit enim id incididunt incididunt occaecat sint laborum ex.'
     },
