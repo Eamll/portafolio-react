@@ -37,6 +37,6 @@ export const trabajos = [
         'url': 'google.com',
         'tecnologias': 'Flutter',
         'categorias': 'Aplicación de ventas',
-        'descripcion': 'Esta aplicacion consume una API en Firebase, utilizo dependencias como el http para hacer fetch a sitios web, Image Picker para sacar imagenes, provider para tener lazyloading y manejar el estado de nuestra app y Flutter Secure Storage para guardar informacion delicada como la informacion del login.'
+        'descripcion': 'Esta aplicacion consume una API en Firebase, utilizo dependencias como el http para hacer fetch a sitios web, Image Picker para sacar imagenes, provider para tener lazyloading y manejar el estado de nuestra app y Flutter Secure Storage para guardar información delicada como la informacion del login.'
     }
 ];

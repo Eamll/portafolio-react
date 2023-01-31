@@ -9,7 +9,6 @@ export const ListadoTrabajos = ({ limite }) => {
                     <article key={trabajo.id} className="work-item">
                         <div className='mask'>
                             <Link to={"/proyecto/" + trabajo.id}>
-
                                 <img src={"/images/" + trabajo.id + ".png"} alt="404 not found" />
                             </Link>
                         </div>
