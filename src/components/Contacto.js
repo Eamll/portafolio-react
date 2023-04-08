@@ -1,16 +1,31 @@
-import React from 'react'
+import React from 'react';
 
 export const Contacto = () => {
     return (
-        <div className='page'>
-            <h1 className='heading'>Contacto</h1>
+        <div>
+            <h4>Contacto</h4>
+            <form name="contact" method="POST" data-netlify="true">
+                <div>
+                    <label htmlFor="name-form">Nombre</label>
+                    <input type="text" name="name" required id="name-form" />
+                </div>
+                <div>
+                    <label htmlFor="lastname-form">Apellidos</label>
+                    <input type="text" name="apellidos" id="lastname-form" />
+                </div>
+                <div>
+                    <label htmlFor="email-form">Email</label>
+                    <input type="email" name="email" required id="email-form" />
+                </div>
 
-            <form className='contact' action='mailto:alexandermoralesllanos1@gmail.com'>
-                <input type="text" placeholder='Nombre' />
-                <input type="text" placeholder='Apellidos' />
-                <input type="text" placeholder='Email' />
-                <textarea placeholder='Motivo de contacto' />
-                <input type="submit" value="Enviar" />
+                <div>
+                    <label htmlFor="message-form">Motivo de contacto</label>
+                    <textarea name="message" rows="7" id="message-form"></textarea>
+                </div>
+                <div>
+                    <div data-netlify-recaptcha="true"></div>
+                </div>
+                <button type="submit">Enviar</button>
             </form>
         </div>
     )
