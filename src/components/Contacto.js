@@ -1,11 +1,35 @@
 import React from 'react';
 
 export const Contacto = () => {
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+
+        try {
+            const response = await fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams(formData).toString(),
+            });
+
+            if (!response.ok) {
+                throw new Error("Form submission failed");
+            }
+
+            alert("Form submitted successfully!");
+        } catch (error) {
+            console.error(error);
+            alert("There was an error submitting the form. Please try again.");
+        }
+    };
     return (
         <div>
             <h4>Contacto</h4>
-            <form name="contact" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact" />
+            <form className="contact" method="POST" data-netlify="true" action="/" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name-form">Nombre</label>
                     <input type="text" name="name" required id="name-form" />
