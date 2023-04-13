@@ -1,57 +1,75 @@
-import React from 'react';
+// ContactForm.js
+import React, { useState } from 'react';
 
-export const Contacto = () => {
+const Contacto = () => {
+    const [formData, setFormData] = useState({});
+
+    const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.name]: event.target.value });
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const formData = new FormData(event.target);
+        const form = event.target;
 
         try {
-            const response = await fetch("/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: new URLSearchParams(formData).toString(),
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encode({ 'form-name': form.getAttribute('name'), ...formData }),
             });
 
-            if (!response.ok) {
-                throw new Error("Form submission failed");
+            if (response.ok) {
+                // Handle successful form submission
+                console.log('Form submitted successfully');
+                setFormData({});
+            } else {
+                // Handle errors
+                console.error('Error submitting form');
             }
-
-            alert("Form submitted successfully!");
         } catch (error) {
-            console.error(error);
-            alert("There was an error submitting the form. Please try again.");
+            console.error('Error submitting form:', error);
         }
     };
-    return (
-        <div>
-            <h4>Contacto</h4>
-            <form className="contact" method="POST" data-netlify="true" action="/" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name-form">Nombre</label>
-                    <input type="text" name="name" required id="name-form" />
-                </div>
-                <div>
-                    <label htmlFor="lastname-form">Apellidos</label>
-                    <input type="text" name="apellidos" id="lastname-form" />
-                </div>
-                <div>
-                    <label htmlFor="email-form">Email</label><br></br>
-                    <input type="email" name="email" required id="email-form" />
-                </div>
 
-                <div>
-                    <label htmlFor="message-form">Motivo de contacto</label>
-                    <textarea name="message" rows="7" id="message-form"></textarea>
-                </div>
-                <div>
-                    <div data-netlify-recaptcha="true"></div>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-    )
-}
+    const encode = (data) => {
+        return Object.keys(data)
+            .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+            .join('&');
+    };
+
+    return (
+        <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+        >
+            <input type="hidden" name="form-name" value="contact" />
+            <p>
+                <label>
+                    Name:
+                    <input type="text" name="name" onChange={handleChange} value={formData.name || ''} />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Email:
+                    <input type="email" name="email" onChange={handleChange} value={formData.email || ''} />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Message:
+                    <textarea name="message" onChange={handleChange} value={formData.message || ''}></textarea>
+                </label>
+            </p>
+            <p>
+                <button type="submit">Send</button>
+            </p>
+        </form>
+    );
+};
+
+export default Contacto;
