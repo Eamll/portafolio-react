@@ -8,7 +8,7 @@ export const Contacto = () => {
         const formData = new FormData(event.target);
 
         try {
-            const response = await fetch("/contacto", {
+            const response = await fetch("https://portfolio-eamll-react.netlify.app/contacto", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
