@@ -9,6 +9,7 @@ import { Portafolio } from '../components/Portafolio'
 import { Proyecto } from '../components/Proyecto'
 import { Servicios } from '../components/Servicios'
 export const MisRutas = () => {
+
     return (
         <BrowserRouter>
             {/*HEADER Y NAVEGACION  */}

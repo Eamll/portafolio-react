@@ -1,7 +1,7 @@
 // ContactForm.js
 import React, { useState } from 'react';
 
-const Contacto = () => {
+export const Contacto = () => {
     const [formData, setFormData] = useState({});
 
     const handleChange = (event) => {
@@ -72,4 +72,4 @@ const Contacto = () => {
     );
 };
 
-export default Contacto;
+
