@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
 export const Contacto = () => {
-    const [formStatus, setFormStatus] = useState('');
+    // const [formStatus, setFormStatus] = useState('');
 
     async function handleSubmit(event) {
         event.preventDefault();
