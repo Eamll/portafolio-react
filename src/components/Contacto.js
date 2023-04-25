@@ -1,35 +1,31 @@
 import React from 'react';
-
+import { NetlifyForm } from 'netlify';
 export const Contacto = () => {
 
-    const handleSubmit = async (event) => {
+    function handleSubmit(event) {
         event.preventDefault();
 
+        // create a new FormData object from the form data
         const formData = new FormData(event.target);
 
-        try {
-            const response = await fetch("https://portfolio-eamll-react.netlify.app/contacto", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: new URLSearchParams(formData).toString(),
+        // send a POST request with the form data to the Netlify form submission endpoint
+        fetch('/', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(() => {
+                // if the submission was successful, do something (e.g. show a success message)
+                console.log('Form submitted successfully');
+            })
+            .catch((error) => {
+                // if the submission failed, do something (e.g. show an error message)
+                console.error(error);
             });
-
-            if (!response.ok) {
-                throw new Error("Form submission failed");
-            }
-
-            alert("Form submitted successfully!");
-        } catch (error) {
-            console.error(error);
-            alert("There was an error submitting the form. Please try again.");
-        }
-    };
+    }
     return (
         <div>
             <h4>Contacto</h4>
-            <form className="contact" method="POST" data-netlify="true" action="/" onSubmit={handleSubmit}>
+            <NetlifyForm onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name-form">Nombre</label>
                     <input type="text" name="name" required id="name-form" />
@@ -42,7 +38,6 @@ export const Contacto = () => {
                     <label htmlFor="email-form">Email</label><br></br>
                     <input type="email" name="email" required id="email-form" />
                 </div>
-
                 <div>
                     <label htmlFor="message-form">Motivo de contacto</label>
                     <textarea name="message" rows="7" id="message-form"></textarea>
@@ -51,7 +46,7 @@ export const Contacto = () => {
                     <div data-netlify-recaptcha="true"></div>
                 </div>
                 <button type="submit">Enviar</button>
-            </form>
+            </NetlifyForm>
         </div>
     )
 }
