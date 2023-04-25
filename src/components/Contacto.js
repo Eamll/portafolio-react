@@ -1,5 +1,5 @@
 import React from 'react';
-import { NetlifyForm } from 'netlify';
+
 export const Contacto = () => {
 
     function handleSubmit(event) {
@@ -22,10 +22,11 @@ export const Contacto = () => {
                 console.error(error);
             });
     }
+
     return (
         <div>
             <h4>Contacto</h4>
-            <NetlifyForm onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} data-netlify="true" name="contact">
                 <div>
                     <label htmlFor="name-form">Nombre</label>
                     <input type="text" name="name" required id="name-form" />
@@ -46,7 +47,7 @@ export const Contacto = () => {
                     <div data-netlify-recaptcha="true"></div>
                 </div>
                 <button type="submit">Enviar</button>
-            </NetlifyForm>
+            </form>
         </div>
     )
 }
