@@ -4,7 +4,7 @@ export const Contacto = () => {
     return (
         <div>
             <h4>Contacto</h4>
-            <form data-netlify="true" name="contact" method='POST'>
+            <form data-netlify="true" name="contact" method='POST' action="/">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div>
