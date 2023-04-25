@@ -3,25 +3,31 @@ import React, { useState } from 'react';
 export const Contacto = () => {
     const [formStatus, setFormStatus] = useState('');
 
-    const handleSubmit = async (event) => {
+    async function handleSubmit(event) {
         event.preventDefault();
+
         const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch('https://portfolio-eamll-react.netlify.app/', {
-                method: 'POST',
-                body: formData,
+            const response = await fetch("/.netlify/functions/submitForm", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ payload: data }),
             });
 
             if (response.ok) {
-                setFormStatus('Form submitted successfully');
+                console.log("Form submitted successfully");
             } else {
-                throw new Error('Form submission failed');
+                console.error("Form submission failed");
             }
         } catch (error) {
-            setFormStatus(`Error: ${error.message}`);
+            console.error(error);
         }
-    };
+    }
+
 
     return (
         <div>
