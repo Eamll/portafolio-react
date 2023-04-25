@@ -32,7 +32,7 @@ export const Contacto = () => {
     return (
         <div>
             <h4>Contacto</h4>
-            <form onSubmit={handleSubmit} data-netlify="true" name="contact">
+            <form onSubmit={handleSubmit} netlify name="contact">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div>
