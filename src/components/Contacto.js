@@ -1,32 +1,10 @@
 import React from 'react';
 
 export const Contacto = () => {
-
-    function handleSubmit(event) {
-        event.preventDefault();
-
-        // create a new FormData object from the form data
-        const formData = new FormData(event.target);
-
-        // send a POST request with the form data to the Netlify form submission endpoint
-        fetch('/contacto', {
-            method: 'POST',
-            body: formData,
-        })
-            .then(() => {
-                // if the submission was successful, do something (e.g. show a success message)
-                console.log('Form submitted successfully');
-            })
-            .catch((error) => {
-                // if the submission failed, do something (e.g. show an error message)
-                console.error(error);
-            });
-    }
-
     return (
         <div>
             <h4>Contacto</h4>
-            <form onSubmit={handleSubmit} data-netlify="true" name="contact">
+            <form data-netlify="true" name="contact">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div>
