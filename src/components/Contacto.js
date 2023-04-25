@@ -9,7 +9,7 @@ export const Contacto = () => {
         const formData = new FormData(event.target);
 
         // send a POST request with the form data to the Netlify form submission endpoint
-        fetch('/', {
+        fetch('/contacto', {
             method: 'POST',
             body: formData,
         })
