@@ -56,7 +56,7 @@ export const Contacto = () => {
                 </div>
                 <button type="submit">Enviar</button>
             </form>
-            {formStatus && <p>{formStatus}</p>}
+            {/* {formStatus && <p>{formStatus}</p>} */}
         </div>
     );
 };
