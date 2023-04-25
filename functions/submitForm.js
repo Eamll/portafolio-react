@@ -1,19 +1,38 @@
+const axios = require("axios");
+
 exports.handler = async function (event, context) {
-    if (event.httpMethod !== "POST") {
-        return {
-            statusCode: 405,
-            body: "Method Not Allowed",
-            headers: { Allow: "POST" },
-        };
+    const { httpMethod, body } = event;
+
+    if (httpMethod !== "POST") {
+        return { statusCode: 405, body: "Method Not Allowed" };
     }
 
-    const { payload } = JSON.parse(event.body);
+    const { name, apellidos, email, message } = JSON.parse(body);
 
-    // Here, you can process the form data as needed
-    console.log("Form data:", payload);
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ message: "Form submitted successfully" }),
+    const data = {
+        "form-name": "contact",
+        name,
+        apellidos,
+        email,
+        message,
     };
+
+    try {
+        const response = await axios.post("/", data, {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+        });
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ message: "Form submitted successfully." }),
+        };
+    } catch (error) {
+        console.log("Error submitting form: ", error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ message: "Error submitting form." }),
+        };
+    }
 };
