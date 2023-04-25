@@ -27,6 +27,8 @@ export const Contacto = () => {
         <div>
             <h4>Contacto</h4>
             <form onSubmit={handleSubmit} data-netlify="true" name="contact">
+                <input type="hidden" name="form-name" value="contact" />
+
                 <div>
                     <label htmlFor="name-form">Nombre</label>
                     <input type="text" name="name" required id="name-form" />
