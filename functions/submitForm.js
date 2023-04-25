@@ -18,7 +18,7 @@ exports.handler = async function (event, context) {
     };
 
     try {
-        const response = await axios.post("/", data, {
+        const response = await axios.post("/.netlify/forms/submit", data, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },

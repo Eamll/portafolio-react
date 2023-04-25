@@ -15,7 +15,7 @@ export const Contacto = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ payload: data }),
+                body: JSON.stringify(data),
             });
 
             if (response.ok) {
