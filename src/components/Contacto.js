@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const Contacto = () => {
+    const [formStatus, setFormStatus] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        try {
+            const response = await fetch('/', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                setFormStatus('Form submitted successfully');
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            setFormStatus(`Error: ${error.message}`);
+        }
+    };
+
     return (
         <div>
             <h4>Contacto</h4>
-            <form data-netlify="true" name="contact" method='POST' action="/">
+            <form onSubmit={handleSubmit} data-netlify="true" name="contact">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div>
@@ -28,6 +50,7 @@ export const Contacto = () => {
                 </div>
                 <button type="submit">Enviar</button>
             </form>
+            {formStatus && <p>{formStatus}</p>}
         </div>
-    )
-}
+    );
+};
