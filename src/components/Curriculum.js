@@ -15,7 +15,7 @@ export const Curriculum = () => {
                 <li>Implementé y promoví la adopción de nuevas herramientas tecnológicas que contribuyeron a una mayor organización y eficiencia dentro de la empresa.</li>
             </ul>
             <h2>Conocimientos</h2>
-            <div class="skills-container">
+            <div className="skills-container">
                 <div>
                     <h4>MERN Stack</h4>
                     <ul>

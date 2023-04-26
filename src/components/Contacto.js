@@ -1,24 +1,23 @@
-// import React, { useState } from 'react';
+import React from 'react';
+import axios from 'axios';
 
 export const Contacto = () => {
-    // const [formStatus, setFormStatus] = useState('');
+    const formEndpoint = "https://getform.io/f/23e33eb5-d5fd-448c-8141-f4572037a747";
 
     async function handleSubmit(event) {
         event.preventDefault();
 
         const formData = new FormData(event.target);
-        const data = Object.fromEntries(formData.entries());
+        const data = new URLSearchParams([...formData.entries()]);
 
         try {
-            const response = await fetch("/.netlify/functions/submitForm", {
-                method: "POST",
+            const response = await axios.post(formEndpoint, data, {
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded",
                 },
-                body: JSON.stringify(data),
             });
 
-            if (response.ok) {
+            if (response.status === 200) {
                 console.log("Form submitted successfully");
             } else {
                 console.error("Form submission failed");
@@ -28,11 +27,10 @@ export const Contacto = () => {
         }
     }
 
-
     return (
         <div>
             <h4>Contacto</h4>
-            <form onSubmit={handleSubmit} netlify data-netlify="true" name="contact">
+            <form onSubmit={handleSubmit} name="contact">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div>
@@ -51,12 +49,8 @@ export const Contacto = () => {
                     <label htmlFor="message-form">Motivo de contacto</label>
                     <textarea name="message" rows="7" id="message-form"></textarea>
                 </div>
-                <div>
-                    <div data-netlify-recaptcha="true"></div>
-                </div>
                 <button type="submit">Enviar</button>
             </form>
-            {/* {formStatus && <p>{formStatus}</p>} */}
         </div>
     );
 };
