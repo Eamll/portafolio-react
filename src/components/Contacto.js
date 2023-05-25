@@ -34,7 +34,7 @@ export const Contacto = () => {
 
             })();
         }
-    }, [submitting, history]);
+    }, [submitting]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
