@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
 export const Contacto = () => {
     const formEndpoint = 'https://getform.io/f/23e33eb5-d5fd-448c-8141-f4572037a747';
     const [submitting, setSubmitting] = useState(false);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         if (submitting) {
@@ -22,7 +22,7 @@ export const Contacto = () => {
 
                     if (response.status === 200) {
                         console.log('Form submitted successfully');
-                        navigate('/thank-you'); // Redirect to the thank you page
+                        // navigate('/thank-you'); // Redirect to the thank you page
                     } else {
                         console.error('Form submission failed');
                     }
