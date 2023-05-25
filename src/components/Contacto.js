@@ -1,38 +1,48 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ReCAPTCHA from 'react-google-recaptcha';
+import { useNavigate } from 'react-router-dom';
+
 
 export const Contacto = () => {
     const formEndpoint = 'https://getform.io/f/23e33eb5-d5fd-448c-8141-f4572037a747';
-    const recaptchaRef = useRef();
+    const [submitting, setSubmitting] = useState(false);
+    const navigate = useNavigate();
 
-    async function handleSubmit(event) {
-        event.preventDefault();
+    useEffect(() => {
+        if (submitting) {
+            (async () => {
+                const formData = new FormData();
+                const data = new URLSearchParams([...formData.entries()]);
+                try {
+                    const response = await axios.post(formEndpoint, data, {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                    });
 
-        const formData = new FormData(event.target);
-        const recaptchaValue = recaptchaRef.current.getValue();
-        formData.append('g-recaptcha-response', recaptchaValue);
-        const data = new URLSearchParams([...formData.entries()]);
+                    if (response.status === 200) {
+                        console.log('Form submitted successfully');
+                        navigate('/thank-you'); // Redirect to the thank you page
+                    } else {
+                        console.error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
 
-        try {
-            const response = await axios.post(formEndpoint, data, {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            });
+                setSubmitting(false);
 
-            if (response.status === 200) {
-                console.log('Form submitted successfully');
-            } else {
-                console.error('Form submission failed');
-            }
-        } catch (error) {
-            console.error(error);
+            })();
         }
-    }
+    }, [submitting, history]);
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setSubmitting(true);
+    };
     return (
         <div>
+
             <h4>Contacto</h4>
             <form onSubmit={handleSubmit} name='contact'>
                 <input type='hidden' name='form-name' value='contact' />
@@ -53,12 +63,6 @@ export const Contacto = () => {
                 <div>
                     <label htmlFor='message-form'>Motivo de contacto</label>
                     <textarea name='message' rows='7' id='message-form'></textarea>
-                </div>
-                <div>
-                    <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey='6LdObrolAAAAAK-BbM3U1gP4CiMN4GLuuHp9bqud'
-                    />
                 </div>
                 <button type='submit'>Enviar</button>
             </form>
