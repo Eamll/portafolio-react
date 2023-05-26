@@ -176,6 +176,7 @@ button:hover {
 
 
 input[type="text"],
+input[type="email"],
 textarea {
   display: block;
   padding: 15px;

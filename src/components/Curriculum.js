@@ -61,20 +61,17 @@ export const Curriculum = () => {
             <h2>Voluntariados</h2>
             <ul>
                 <li>
-                    <h4>2018-2019/UTEPSA University</h4>
-                    <p>The program "CURSO DE COMPUTACIÓN ADULTO MAYOR" teaching elderly people the basics of computers in order for them to adapt to our modern times.</p>
+                    <h4>2018-2019/Universidad UTEPSA</h4>
+                    <p>El programa de ¨CURSO DE COMPUTACIÓN ADULTO MAYOR¨
+                        impartiendo clases de computación gratuitas en la
+                        universidad UTEPSA a personas de la 3era edad.</p>
                 </li>
                 <li>
-                    <h4>2021-Current Time/UTEPSA University</h4>
-                    <p>The program "EduActivistas" with the support of Switzerland Embassy in order to reduce the breaches between men and women.</p>
+                    <h4>2021-2022/Universidad UTEPSA</h4>
+                    <p>El programa de EduActivistas con el
+                        apoyo de la embajada de Suiza para la reducción de
+                        brechas de desigualdad entre hombres y mujeres.</p>
                 </li>
-
-            </ul>
-            {/* <h4>2018-2019/UTEPSA University</h4>
-            <p>The program "CURSO DE COMPUTACIÓN ADULTO MAYOR" teaching elderly people the basics of computers in order for them to adapt to our modern times.</p>
-            <h4>2021-Current Time/UTEPSA University</h4>
-            <p>The program "EduActivistas" with the support of Switzerland Embassy in order to reduce the breaches between men and women.</p> */}
-            <ul>
 
             </ul>
         </div>
