@@ -6,7 +6,7 @@ export const ThankYou = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigate('/contacto');
+            navigate('/contacto', { replace: true });
         }, 3000);
 
         return () => clearTimeout(timer);
@@ -14,8 +14,8 @@ export const ThankYou = () => {
 
     return (
         <div>
-            <h1>Thank you for submitting the form!</h1>
-            <p>You will be redirected to the contact page in 3 seconds.</p>
+            <h1>!Muchas gracias por su mensaje!</h1>
+            <p>Será redirigido a la página de contacto en 3 segundos.</p>
         </div>
     );
 };
