@@ -7,7 +7,7 @@ export const Curriculum = () => {
             <h2>Experiencia</h2>
             <p>
                 Empresa: Consultora Solución<br />
-                Cargo: Desarrollador de Tecnología
+                Cargo: Auxiliar de oficina
             </p>
             <p>Responsabilidades:</p>
             <ul>
