@@ -8,10 +8,10 @@ export const Inicio = () => {
         <div className='home'>
             <h1>
                 Hola, soy <strong>Alexander Morales</strong>, me apasiona el <strong> desarrollo de aplicaciones Web </strong>y
-                estoy en último año de carrera de Ing. de Sistemas.
+                estoy egresado de la carrera de Ing. de Sistemas.
             </h1>
             <h2 className='title'>
-                Tengo muchas ganas de ampliar mis conocimientos para ofrecer soluciones óptimas a las problemáticas que se presenten.<br /><br /> <Link to="/contacto">¡Contacta conmigo!</Link>
+                Tengo muchas ganas de aplicar mis conocimientos para ofrecer soluciones óptimas a las problemáticas que se presenten.<br /><br /> <Link to="/contacto">¡Contacta conmigo!</Link>
             </h2>
             <section className='last-works'>
                 <h2 className='heading'>Algunos de mis proyectos</h2>
