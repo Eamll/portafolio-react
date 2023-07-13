@@ -25,7 +25,7 @@ export const trabajos = [
     },
     {
         'id': 'componentes_app_flutter',
-        'nombre': 'Compenentes App',
+        'nombre': 'Componentes App',
         'url': 'google.com',
         'tecnologias': 'Flutter, Dart',
         'categorias': 'Aplicación de educacion',
